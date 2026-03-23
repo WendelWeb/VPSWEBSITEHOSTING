@@ -330,22 +330,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 32px;display:fl
     <div class="qty-card selected" onclick="setQty(1)" id="qty1">
       <div class="qty-num">1</div>
       <div class="qty-label" data-fr="site web" data-en="website">site web</div>
-      <div class="qty-price">$1,497<span>.50</span></div>
+      <div class="qty-price">$599<span>.00</span></div>
       <div class="qty-per-site" data-fr="par mois" data-en="per month">par mois</div>
     </div>
     <div class="qty-card" onclick="setQty(2)" id="qty2">
-      <div class="qty-popular" data-fr="POPULAIRE" data-en="POPULAR">POPULAIRE</div>
       <div class="qty-num">2</div>
       <div class="qty-label" data-fr="sites web" data-en="websites">sites web</div>
-      <div class="qty-price">$2,995<span>.00</span></div>
-      <div class="qty-per-site" data-fr="par mois — $1,497.50/site" data-en="per month — $1,497.50/site">par mois — $1,497.50/site</div>
+      <div class="qty-price">$1,198<span>.00</span></div>
+      <div class="qty-per-site" data-fr="par mois — $599.00/site" data-en="per month — $599.00/site">par mois — $599.00/site</div>
     </div>
     <div class="qty-card" onclick="setQty(3)" id="qty3">
+      <div class="qty-popular" data-fr="MEILLEURE OFFRE" data-en="BEST DEAL">MEILLEURE OFFRE</div>
       <div class="qty-num">3</div>
       <div class="qty-label" data-fr="sites web" data-en="websites">sites web</div>
-      <div class="qty-price">$4,492<span>.50</span></div>
-      <div class="qty-per-site" data-fr="par mois — $1,497.50/site" data-en="per month — $1,497.50/site">par mois — $1,497.50/site</div>
-      <div class="qty-save" data-fr="Capacité maximale du serveur" data-en="Maximum server capacity">Capacité maximale du serveur</div>
+      <div class="qty-price">$1,497<span>.50</span></div>
+      <div class="qty-per-site" data-fr="par mois — $499.17/site" data-en="per month — $499.17/site">par mois — $499.17/site</div>
+      <div class="qty-save" data-fr="Vous économisez $299.50/mois (×2.5 au lieu de ×3)" data-en="You save $299.50/mo (×2.5 instead of ×3)">Vous économisez $299.50/mois (×2.5 au lieu de ×3)</div>
     </div>
   </div>
 
@@ -355,30 +355,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 32px;display:fl
     <div class="order-box">
       <h3 data-fr="Récapitulatif" data-en="Order Summary">Récapitulatif</h3>
       <p class="order-sub" data-fr="Abonnement mensuel — renouvelable chaque mois" data-en="Monthly subscription — renews every month">Abonnement mensuel — renouvelable chaque mois</p>
-      <div class="line-item">
-        <span data-fr="Prix de base par site" data-en="Base price per site">Prix de base par site</span>
-        <span class="val">$599.00</span>
-      </div>
-      <div class="line-item">
-        <span data-fr="Infrastructure dédiée (×2.5)" data-en="Dedicated infrastructure (×2.5)">Infrastructure dédiée (×2.5)</span>
-        <span class="val">$1,497.50</span>
-      </div>
-      <div class="line-item">
-        <span data-fr="Nombre de sites" data-en="Number of sites">Nombre de sites</span>
-        <span class="val" id="orderQty">×1</span>
-      </div>
-      <div class="line-item">
-        <span data-fr="Configuration & déploiement" data-en="Setup & Deployment">Configuration & déploiement</span>
-        <span class="val free" data-fr="GRATUIT" data-en="FREE">GRATUIT</span>
-      </div>
-      <div class="line-item">
-        <span data-fr="SSL Premium (par site)" data-en="Premium SSL (per site)">SSL Premium (par site)</span>
-        <span class="val free" data-fr="INCLUS" data-en="INCLUDED">INCLUS</span>
-      </div>
+      <div id="orderLines"></div>
       <div class="total-divider"></div>
       <div class="order-total">
         <span class="order-total-label" data-fr="Total mensuel" data-en="Monthly Total">Total mensuel</span>
-        <div class="order-total-price" id="orderTotal">$1,497.50 <small data-fr="/mois" data-en="/mo">/mois</small></div>
+        <div class="order-total-price" id="orderTotal">$599.00 <small data-fr="/mois" data-en="/mo">/mois</small></div>
       </div>
       <div class="order-includes">
         <div class="order-includes-title" data-fr="INCLUS AVEC CHAQUE SITE" data-en="INCLUDED WITH EVERY SITE">INCLUS AVEC CHAQUE SITE</div>
@@ -442,7 +423,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 32px;display:fl
         </select>
       </div>
       <button class="pay-btn" id="payBtn" onclick="pay()">
-        <span id="payBtnText">Payer $1,497.50 / mois</span>
+        <span id="payBtnText">Payer $599.00 / mois</span>
       </button>
       <div class="secure-row">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
@@ -488,10 +469,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 32px;display:fl
   <p class="section-desc" data-fr="Tout ce que vous devez savoir avant de vous abonner." data-en="Everything you need to know before subscribing.">Tout ce que vous devez savoir avant de vous abonner.</p>
   <div class="faq-item open">
     <div class="faq-q" onclick="toggleFaq(this)">
-      <span data-fr="Pourquoi le prix est-il de $1,497.50 et non $599 ?" data-en="Why is the price $1,497.50 and not $599?">Pourquoi le prix est-il de $1,497.50 et non $599 ?</span>
+      <span data-fr="Comment fonctionne la tarification ?" data-en="How does the pricing work?">Comment fonctionne la tarification ?</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
-    <div class="faq-a"><p data-fr="Le prix de base de $599 couvre le système web. Le coefficient ×2.5 ($599 × 2.5 = $1,497.50) inclut l'infrastructure dédiée : serveurs, bande passante illimitée, DDoS, SSL premium, sauvegardes et support 24/7." data-en="The base price of $599 covers the web system. The ×2.5 multiplier ($599 × 2.5 = $1,497.50) includes the dedicated infrastructure: servers, unlimited bandwidth, DDoS, premium SSL, backups and 24/7 support.">Le prix de base de $599 couvre le système web. Le coefficient ×2.5 ($599 × 2.5 = $1,497.50) inclut l'infrastructure dédiée : serveurs, bande passante illimitée, DDoS, SSL premium, sauvegardes et support 24/7.</p></div>
+    <div class="faq-a"><p data-fr="Chaque site web coûte $599/mois. Si vous prenez 3 sites en même temps, vous bénéficiez d'un tarif préférentiel : au lieu de payer 3× ($1,797), vous ne payez que 2.5× soit $1,497.50/mois — une économie de $299.50 chaque mois. C'est notre façon de récompenser les clients multi-sites." data-en="Each website costs $599/month. If you take 3 sites at once, you get a preferential rate: instead of paying 3× ($1,797), you only pay 2.5× which is $1,497.50/month — saving $299.50 every month. It's our way of rewarding multi-site clients.">Chaque site web coûte $599/mois. Si vous prenez 3 sites en même temps, vous bénéficiez d'un tarif préférentiel : au lieu de payer 3× ($1,797), vous ne payez que 2.5× soit $1,497.50/mois — une économie de $299.50 chaque mois. C'est notre façon de récompenser les clients multi-sites.</p></div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
@@ -528,83 +509,84 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:14px 32px;display:fl
 
 <script>
 let lang='fr', qty=1;
-const BASE=599, MULT=2.5, PER_SITE=BASE*MULT;
+const BASE=599;
+function getTotal(q){ return q===3 ? BASE*2.5 : BASE*q; }
 
 const explanations={
   fr:{
     1:{
-      title:"1 site web — L'essentiel pour démarrer",
-      body:`Vous hébergez <span class="highlight">1 seul site web</span> sur un serveur VPS entièrement dédié.
+      title:"1 site web — Hébergement premium pour votre projet",
+      body:`Vous hébergez <span class="highlight">1 site web</span> sur notre infrastructure VPS dédiée avec toutes les ressources incluses.
         <span class="calc">
-          Prix de base du système web : <span class="op">$599.00</span><br>
-          Infrastructure dédiée (×2.5) : $599 × 2.5 = <span class="result">$1,497.50 / mois</span>
+          1 système web × $599.00 = <span class="result">$599.00 / mois</span>
         </span>
-        <strong>Pourquoi ×2.5 ?</strong> Le coefficient couvre tout ce qui fait tourner votre site au quotidien : serveurs haute performance (8 vCPU, 32 Go RAM), 500 Go de stockage NVMe ultra-rapide, bande passante illimitée, protection DDoS enterprise, certificat SSL premium, sauvegardes automatiques quotidiennes et support technique prioritaire disponible 24h/24, 7j/7.
-        <br><br><span class="green">Idéal pour :</span> un site e-commerce, un SaaS, ou un site vitrine à fort trafic qui nécessite des ressources garanties.`,
+        <strong>Ce qui est inclus :</strong> Serveurs haute performance (8 vCPU, 32 Go RAM), 500 Go de stockage NVMe ultra-rapide, bande passante illimitée, protection DDoS enterprise, certificat SSL premium, sauvegardes automatiques quotidiennes et support technique prioritaire 24h/24, 7j/7. Tout est compris — aucun frais caché.
+        <br><br><span class="green">Idéal pour :</span> un site e-commerce, un SaaS, ou un site vitrine à fort trafic qui nécessite des ressources dédiées.`,
       features:["Serveur 100% dédié","Ressources non partagées","Déploiement en 5 min","Migration gratuite"]
     },
     2:{
-      title:"2 sites web — Le choix le plus populaire",
-      body:`Vous hébergez <span class="highlight">2 sites web</span> sur votre infrastructure dédiée. Chaque site dispose de ses propres ressources isolées.
+      title:"2 sites web — Doublez votre présence en ligne",
+      body:`Vous hébergez <span class="highlight">2 sites web</span> sur notre infrastructure. Chaque site dispose de ses propres ressources isolées.
         <span class="calc">
-          Site 1 : $599 × 2.5 = $1,497.50<br>
-          Site 2 : $599 × 2.5 = $1,497.50<br>
-          <strong>Total :</strong> 2 × $1,497.50 = <span class="result">$2,995.00 / mois</span>
+          Site 1 : $599.00<br>
+          Site 2 : $599.00<br>
+          <strong>Total :</strong> 2 × $599 = <span class="result">$1,198.00 / mois</span>
         </span>
-        <strong>Pourquoi payer par site ?</strong> Chaque site nécessite son propre environnement dédié pour garantir <span class="highlight">performance et sécurité maximales</span>. Contrairement à l'hébergement mutualisé, vos sites ne partagent aucune ressource avec d'autres clients. Un pic de trafic sur le site A n'affecte jamais le site B — chaque site est complètement isolé.
-        <br><br><span class="green">Idéal pour :</span> gérer un site principal + un blog, deux projets clients séparés, ou un site de production + un site de staging.`,
+        <strong>Pourquoi ce prix ?</strong> Chaque site fonctionne dans un <span class="highlight">environnement complètement isolé</span>. Un pic de trafic sur le site A n'affecte jamais le site B. Contrairement à l'hébergement mutualisé, vos sites ne partagent aucune ressource avec d'autres clients.
+        <br><br><span class="highlight">💡 Astuce :</span> En ajoutant un 3ème site, vous passez au tarif préférentiel ×2.5 au lieu de ×3 et <span class="green">économisez $299.50/mois</span> !
+        <br><br><span class="green">Idéal pour :</span> un site principal + un blog, deux projets clients, ou un site de production + staging.`,
       features:["2 environnements isolés","Aucune interférence","2× SSL Premium inclus","Support prioritaire"]
     },
     3:{
-      title:"3 sites web — Capacité maximale du serveur",
-      body:`Vous exploitez la <span class="highlight">capacité maximale</span> de votre serveur VPS avec 3 sites web hébergés simultanément.
+      title:"3 sites web — Le meilleur rapport qualité/prix",
+      body:`Vous exploitez la <span class="highlight">capacité maximale</span> de votre serveur VPS avec 3 sites web — et vous bénéficiez d'un <span class="green">tarif préférentiel exclusif</span>.
         <span class="calc">
-          Site 1 : $599 × 2.5 = $1,497.50<br>
-          Site 2 : $599 × 2.5 = $1,497.50<br>
-          Site 3 : $599 × 2.5 = $1,497.50<br>
-          <strong>Total :</strong> 3 × $1,497.50 = <span class="result">$4,492.50 / mois</span>
+          Prix normal : 3 × $599 = <span class="op" style="text-decoration:line-through;">$1,797.00</span><br>
+          Tarif pack 3 sites (×2.5) : $599 × 2.5 = <span class="result">$1,497.50 / mois</span><br>
+          <span style="color:var(--cyan);font-weight:700;">→ Vous économisez $299.50 chaque mois !</span>
         </span>
-        <strong>Pourquoi limiter à 3 ?</strong> Ce n'est pas une restriction commerciale — c'est une <span class="highlight">garantie de qualité</span>. Chaque site dispose de ressources entièrement dédiées (8 vCPU, 32 Go RAM, 500 Go NVMe). Au-delà de 3 sites, nous ne pouvons plus garantir les performances optimales que nos clients attendent. La qualité prime toujours sur la quantité.
-        <br><br><span class="green">Idéal pour :</span> une agence web gérant plusieurs clients, un entrepreneur avec un portfolio de sites, ou une entreprise avec plusieurs marques en ligne.`,
-      features:["Capacité serveur optimale","3 environnements isolés","3× SSL Premium inclus","Performances garanties"]
+        <strong>Pourquoi cette réduction ?</strong> En prenant 3 sites, vous <span class="highlight">optimisez les ressources du serveur</span>. Nous partageons cette efficacité avec vous en facturant seulement 2.5× au lieu de 3×. Chaque site garde ses propres ressources dédiées (8 vCPU, 32 Go RAM, 500 Go NVMe) — la réduction vient de notre côté, pas de vos performances.
+        <br><br><span class="green">Soit $499.17/site au lieu de $599 — la meilleure offre disponible.</span>
+        <br><br><span class="green">Idéal pour :</span> une agence web, un entrepreneur multi-projets, ou une entreprise avec plusieurs marques.`,
+      features:["Économie de $299.50/mois","3 environnements isolés","3× SSL Premium inclus","Performances garanties"]
     }
   },
   en:{
     1:{
-      title:"1 website — The essentials to get started",
-      body:`You're hosting <span class="highlight">1 website</span> on a fully dedicated VPS server.
+      title:"1 website — Premium hosting for your project",
+      body:`You're hosting <span class="highlight">1 website</span> on our dedicated VPS infrastructure with all resources included.
         <span class="calc">
-          Web system base price: <span class="op">$599.00</span><br>
-          Dedicated infrastructure (×2.5): $599 × 2.5 = <span class="result">$1,497.50 / month</span>
+          1 web system × $599.00 = <span class="result">$599.00 / month</span>
         </span>
-        <strong>Why ×2.5?</strong> The multiplier covers everything that keeps your site running daily: high-performance servers (8 vCPU, 32 GB RAM), 500 GB ultra-fast NVMe storage, unlimited bandwidth, enterprise DDoS protection, premium SSL certificate, daily automatic backups and 24/7 priority technical support.
-        <br><br><span class="green">Ideal for:</span> an e-commerce site, SaaS, or high-traffic showcase website that needs guaranteed resources.`,
+        <strong>What's included:</strong> High-performance servers (8 vCPU, 32 GB RAM), 500 GB ultra-fast NVMe storage, unlimited bandwidth, enterprise DDoS protection, premium SSL certificate, daily automatic backups and 24/7 priority technical support. Everything is included — no hidden fees.
+        <br><br><span class="green">Ideal for:</span> an e-commerce site, SaaS, or high-traffic showcase website that needs dedicated resources.`,
       features:["100% Dedicated server","Non-shared resources","5 min deployment","Free migration"]
     },
     2:{
-      title:"2 websites — The most popular choice",
-      body:`You're hosting <span class="highlight">2 websites</span> on your dedicated infrastructure. Each site has its own isolated resources.
+      title:"2 websites — Double your online presence",
+      body:`You're hosting <span class="highlight">2 websites</span> on our infrastructure. Each site has its own isolated resources.
         <span class="calc">
-          Site 1: $599 × 2.5 = $1,497.50<br>
-          Site 2: $599 × 2.5 = $1,497.50<br>
-          <strong>Total:</strong> 2 × $1,497.50 = <span class="result">$2,995.00 / month</span>
+          Site 1: $599.00<br>
+          Site 2: $599.00<br>
+          <strong>Total:</strong> 2 × $599 = <span class="result">$1,198.00 / month</span>
         </span>
-        <strong>Why pay per site?</strong> Each site requires its own dedicated environment to guarantee <span class="highlight">maximum performance and security</span>. Unlike shared hosting, your sites don't share any resources with other clients. A traffic spike on Site A never affects Site B — each site is completely isolated.
-        <br><br><span class="green">Ideal for:</span> managing a main site + a blog, two separate client projects, or a production site + a staging site.`,
+        <strong>Why this price?</strong> Each site runs in a <span class="highlight">completely isolated environment</span>. A traffic spike on Site A never affects Site B. Unlike shared hosting, your sites don't share any resources with other clients.
+        <br><br><span class="highlight">💡 Tip:</span> By adding a 3rd site, you unlock the ×2.5 preferential rate instead of ×3 and <span class="green">save $299.50/month</span>!
+        <br><br><span class="green">Ideal for:</span> a main site + blog, two client projects, or a production + staging site.`,
       features:["2 isolated environments","Zero interference","2× Premium SSL included","Priority support"]
     },
     3:{
-      title:"3 websites — Maximum server capacity",
-      body:`You're leveraging the <span class="highlight">full capacity</span> of your VPS server with 3 simultaneously hosted websites.
+      title:"3 websites — The best value for money",
+      body:`You're leveraging the <span class="highlight">full capacity</span> of your VPS server with 3 websites — and you get an <span class="green">exclusive preferential rate</span>.
         <span class="calc">
-          Site 1: $599 × 2.5 = $1,497.50<br>
-          Site 2: $599 × 2.5 = $1,497.50<br>
-          Site 3: $599 × 2.5 = $1,497.50<br>
-          <strong>Total:</strong> 3 × $1,497.50 = <span class="result">$4,492.50 / month</span>
+          Regular price: 3 × $599 = <span class="op" style="text-decoration:line-through;">$1,797.00</span><br>
+          3-site pack rate (×2.5): $599 × 2.5 = <span class="result">$1,497.50 / month</span><br>
+          <span style="color:var(--cyan);font-weight:700;">→ You save $299.50 every month!</span>
         </span>
-        <strong>Why limit to 3?</strong> This isn't a sales restriction — it's a <span class="highlight">quality guarantee</span>. Each site gets fully dedicated resources (8 vCPU, 32 GB RAM, 500 GB NVMe). Beyond 3 sites, we can no longer guarantee the optimal performance our clients expect. Quality always comes before quantity.
-        <br><br><span class="green">Ideal for:</span> a web agency managing multiple clients, an entrepreneur with a website portfolio, or a company with multiple online brands.`,
-      features:["Optimal server capacity","3 isolated environments","3× Premium SSL included","Guaranteed performance"]
+        <strong>Why this discount?</strong> By taking 3 sites, you <span class="highlight">optimize server resources</span>. We share this efficiency with you by charging only 2.5× instead of 3×. Each site keeps its own dedicated resources (8 vCPU, 32 GB RAM, 500 GB NVMe) — the discount comes from our side, not your performance.
+        <br><br><span class="green">That's $499.17/site instead of $599 — the best deal available.</span>
+        <br><br><span class="green">Ideal for:</span> a web agency, a multi-project entrepreneur, or a company with multiple brands.`,
+      features:["Save $299.50/month","3 isolated environments","3× Premium SSL included","Guaranteed performance"]
     }
   }
 };
@@ -632,59 +614,84 @@ function setQty(q){
 function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
 
 function updateAll(){
-  const total=PER_SITE*qty;
+  const total=getTotal(qty);
   const totalStr=fmt(total);
-  document.getElementById('orderQty').textContent='×'+qty;
   const mo=lang==='fr'?'/mois':'/mo';
-  document.getElementById('orderTotal').innerHTML=`$${totalStr} <small data-fr="/mois" data-en="/mo">${mo}</small>`;
+  const isFr=lang==='fr';
+
+  // Build order lines dynamically
+  let lines='';
+  if(qty===1){
+    lines+=li(isFr?'Système web (×1)':'Web system (×1)','$599.00');
+    lines+=li(isFr?'Configuration & déploiement':'Setup & Deployment', isFr?'GRATUIT':'FREE', true);
+    lines+=li(isFr?'SSL Premium':'Premium SSL', isFr?'INCLUS':'INCLUDED', true);
+  } else if(qty===2){
+    lines+=li(isFr?'Système web — Site 1':'Web system — Site 1','$599.00');
+    lines+=li(isFr?'Système web — Site 2':'Web system — Site 2','$599.00');
+    lines+=li(isFr?'Configuration & déploiement':'Setup & Deployment', isFr?'GRATUIT':'FREE', true);
+    lines+=li(isFr?'2× SSL Premium':'2× Premium SSL', isFr?'INCLUS':'INCLUDED', true);
+  } else {
+    lines+=li(isFr?'3 systèmes web (prix normal ×3)':'3 web systems (regular ×3)','<span style="text-decoration:line-through;color:var(--text-dim);font-weight:400;">$1,797.00</span>');
+    lines+=li(isFr?'Réduction pack 3 sites (×2.5)':'3-site pack discount (×2.5)','<span style="color:var(--cyan)">−$299.50</span>');
+    lines+=li(isFr?'Sous-total après réduction':'Subtotal after discount','$1,497.50');
+    lines+=li(isFr?'Configuration & déploiement':'Setup & Deployment', isFr?'GRATUIT':'FREE', true);
+    lines+=li(isFr?'3× SSL Premium':'3× Premium SSL', isFr?'INCLUS':'INCLUDED', true);
+  }
+  document.getElementById('orderLines').innerHTML=lines;
+
+  document.getElementById('orderTotal').innerHTML='$'+totalStr+' <small>'+mo+'</small>';
   const prefix=lang==='fr'?'Payer':'Pay';
   const suffix=lang==='fr'?'/ mois':'/ month';
-  document.getElementById('payBtnText').textContent=`${prefix} $${totalStr} ${suffix}`;
+  document.getElementById('payBtnText').textContent=prefix+' $'+totalStr+' '+suffix;
   renderExplanation();
+}
+
+function li(label,val,isFree){
+  return '<div class="line-item"><span>'+label+'</span><span class="val'+(isFree?' free':'')+'">'+val+'</span></div>';
 }
 
 function renderExplanation(){
   const d=explanations[lang][qty];
-  const chk=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>`;
-  document.getElementById('explainBox').innerHTML=`
-    <div class="explain-header">
-      <div class="explain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
-      <div class="explain-title">${d.title}</div>
-    </div>
-    <div class="explain-body">
-      ${d.body}
-      <div class="explain-features">
-        ${d.features.map(f=>`<div class="explain-feat">${chk}<span>${f}</span></div>`).join('')}
-      </div>
-    </div>`;
+  const chk='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
+  document.getElementById('explainBox').innerHTML=
+    '<div class="explain-header">'+
+      '<div class="explain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>'+
+      '<div class="explain-title">'+d.title+'</div>'+
+    '</div>'+
+    '<div class="explain-body">'+
+      d.body+
+      '<div class="explain-features">'+
+        d.features.map(function(f){return '<div class="explain-feat">'+chk+'<span>'+f+'</span></div>';}).join('')+
+      '</div>'+
+    '</div>';
 }
 
-function fmtCard(el){let v=el.value.replace(/\D/g,'').substring(0,16);el.value=v.replace(/(.{4})/g,'$1 ').trim();}
-function fmtExp(el){let v=el.value.replace(/\D/g,'').substring(0,4);if(v.length>=2)v=v.substring(0,2)+'/'+v.substring(2);el.value=v;}
+function fmtCard(el){var v=el.value.replace(/\D/g,'').substring(0,16);el.value=v.replace(/(.{4})/g,'$1 ').trim();}
+function fmtExp(el){var v=el.value.replace(/\D/g,'').substring(0,4);if(v.length>=2)v=v.substring(0,2)+'/'+v.substring(2);el.value=v;}
 function syncCard(){
-  document.getElementById('dispName').textContent=document.getElementById('inName').value||'—';
-  document.getElementById('dispNum').textContent=document.getElementById('inCard').value||'•••• •••• •••• ••••';
-  document.getElementById('dispExp').textContent=document.getElementById('inExp').value||'••/••';
+  document.getElementById('dispName').textContent=document.getElementById('inName').value||'\u2014';
+  document.getElementById('dispNum').textContent=document.getElementById('inCard').value||'\u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022';
+  document.getElementById('dispExp').textContent=document.getElementById('inExp').value||'\u2022\u2022/\u2022\u2022';
 }
 
 function pay(){
-  const btn=document.getElementById('payBtn');
+  var btn=document.getElementById('payBtn');
   btn.querySelector('span').textContent=lang==='fr'?'Traitement en cours...':'Processing...';
   btn.disabled=true;
-  setTimeout(()=>{
+  setTimeout(function(){
     document.getElementById('confNum').textContent='NXV-2026-'+Math.random().toString(36).substring(2,8).toUpperCase();
     document.getElementById('successOverlay').classList.add('show');
   },2500);
 }
 
 function toggleFaq(el){
-  const item=el.parentElement;
-  const wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  var item=el.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
   if(!wasOpen)item.classList.add('open');
 }
 
-renderExplanation();
+updateAll();
 </script>
 </body>
 </html>
